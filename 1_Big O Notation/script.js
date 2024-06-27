@@ -1,7 +1,11 @@
-// Reverse a string
+// Adding numbers upto n
 
-const reverseString = function (str) {
-  return str.split("").reverse().join("");
-};
+let sum = 0;
+function addNum(n) {
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+  return sum;
+}
 
-console.log(reverseString("apple"));
+console.log(addNum(6));

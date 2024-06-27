@@ -85,7 +85,7 @@ So, the total operation count for the goingUpDown function is 1 + ùëõ + 1 + ùë
 */
 
 // Print all pairs - func
-
+/*
 function printAllPairs(n) {
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < n; j++) {
@@ -94,4 +94,25 @@ function printAllPairs(n) {
   }
 }
 
-printAllPairs(3);
+printAllPairs(3); // O(n) operation inside of an O(n) operation ==> O(n^2)
+*/
+
+// Log atleast 5 - func
+/*
+function logAtleast5(n) {
+  for (let i = 1; i <= Math.max(5, n); i++) {
+    console.log(i);
+  }
+}
+
+logAtleast5(10); // O(n) ==> As n grows the number of operations grow
+*/
+
+// Log atmost 5 - func
+function logAtMost5(n) {
+  for (let i = 1; i <= Math.min(5, n); i++) {
+    console.log(i);
+  }
+}
+
+logAtMost5(10); // O(1)

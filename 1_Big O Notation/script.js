@@ -62,7 +62,7 @@ console.log(addNum(3));
 */
 
 // Going Up Down - func
-
+/*
 function goingUpDown(n) {
   console.log("Going Up"); // O(1)
   for (let i = 1; i <= n; i++) {
@@ -83,3 +83,15 @@ console.log("Going Down");: 1 operation ==> O(1)
 Second loop (downwards counting) ==> O(n) operations
 So, the total operation count for the goingUpDown function is 1 + 𝑛 + 1 + 𝑛 = 2𝑛 + 2
 */
+
+// Print all pairs - func
+
+function printAllPairs(n) {
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      console.log(i, j);
+    }
+  }
+}
+
+printAllPairs(3);

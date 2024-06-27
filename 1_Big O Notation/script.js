@@ -38,8 +38,9 @@ function printBoth(n) {
 // printBoth(3);
 */
 
-// Sol 1 - Adding numbers upto n
-
+//  Adding numbers upto n - func
+/*
+// Sol 1
 let sum = 0;
 
 function addUpto(n) {
@@ -58,3 +59,27 @@ function addNum(n) {
 }
 
 console.log(addNum(3));
+*/
+
+// Going Up Down - func
+
+function goingUpDown(n) {
+  console.log("Going Up"); // O(1)
+  for (let i = 1; i <= n; i++) {
+    console.log(i); // O(1)
+  }
+  console.log("Going Down");
+  for (let j = n - 1; j >= 0; j--) {
+    console.log(j); // O(1)
+  }
+}
+goingUpDown(3);
+
+/*
+Total Operation Count:
+console.log("Going Up");: 1 operation ==> O(1)
+First loop (upwards counting) ==> O(n) operations
+console.log("Going Down");: 1 operation ==> O(1)
+Second loop (downwards counting) ==> O(n) operations
+So, the total operation count for the goingUpDown function is 1 + 𝑛 + 1 + 𝑛 = 2𝑛 + 2
+*/

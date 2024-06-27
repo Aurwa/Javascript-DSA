@@ -25,6 +25,8 @@ let t4 = performance.now();
 console.log(`2 - Time elapsed: ${(t3 - t4) / 1000}`);
 */
 
+//  printBoth function
+/*
 function printBoth(n) {
   for (var i = 0; i < n; i++) {
     for (var j = 0; j < n; j++) {
@@ -33,4 +35,26 @@ function printBoth(n) {
   }
 }
 
-printBoth(3);
+// printBoth(3);
+*/
+
+// Sol 1 - Adding numbers upto n
+
+let sum = 0;
+
+function addUpto(n) {
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+  return sum;
+}
+
+console.log(addUpto(3));
+
+// Sol 2
+
+function addNum(n) {
+  return (n * (n + 1)) / 2;
+}
+
+console.log(addNum(3));

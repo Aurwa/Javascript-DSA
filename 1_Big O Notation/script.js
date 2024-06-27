@@ -1,5 +1,5 @@
 // Sol 1 - Adding numbers upto n
-
+/*
 let sum = 0;
 function addNum(n) {
   for (let i = 1; i <= n; i++) {
@@ -23,3 +23,14 @@ let t3 = performance.now();
 addUpto(1000000);
 let t4 = performance.now();
 console.log(`2 - Time elapsed: ${(t3 - t4) / 1000}`);
+*/
+
+function printBoth(n) {
+  for (var i = 0; i < n; i++) {
+    for (var j = 0; j < n; j++) {
+      console.log(i, j);
+    }
+  }
+}
+
+printBoth(3);

@@ -13,7 +13,7 @@ function countChar(str) {
   return charCount;
 }
 
-console.log(countChar("Hello world!"));
+console.log(countChar("Hello"));
 
 // let pName = "name";
 // const obj = {

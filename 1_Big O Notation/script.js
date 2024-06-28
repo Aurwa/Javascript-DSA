@@ -120,7 +120,7 @@ logAtMost5(10); // O(1);
 */
 
 // Product of all ele in Array -func
-
+/*
 function arrProduct(arr) {
   let product = 1;
   for (let i = 0; i < arr.length; i++) {
@@ -134,3 +134,18 @@ function arrProduct(arr) {
 // the loop runs n times (n is the length of array) making the time complexity O(n)
 
 console.log(arrProduct([1, 2, 3, 4, 5]));
+*/
+
+// Returning the last element of an array - func
+
+/*
+function lastElement(arr) {
+  return arr[arr.length - 1];
+}
+
+// O(1) because accessing an element in an array by its index is a constant time operation. -- Time Comp.
+
+// O(1) -- space complexity ==> because no additional space is used that grows with the input size.
+
+console.log(lastElement([1, 4, 5, 6, 7]));
+*/

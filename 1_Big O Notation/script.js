@@ -109,10 +109,28 @@ logAtleast5(10); // O(n) ==> As n grows the number of operations grow
 */
 
 // Log atmost 5 - func
+/*
 function logAtMost5(n) {
   for (let i = 1; i <= Math.min(5, n); i++) {
     console.log(i);
   }
 }
 
-logAtMost5(10); // O(1)
+logAtMost5(10); // O(1);
+*/
+
+// Product of all ele in Array -func
+
+function arrProduct(arr) {
+  let product = 1;
+  for (let i = 0; i < arr.length; i++) {
+    product *= arr[i];
+  }
+
+  return product;
+}
+// O(n) ==> No. of operations is directly proportional to the size of array
+
+// the loop runs n times (n is the length of array) making the time complexity O(n)
+
+console.log(arrProduct([1, 2, 3, 4, 5]));

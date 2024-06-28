@@ -137,7 +137,6 @@ console.log(arrProduct([1, 2, 3, 4, 5]));
 */
 
 // Returning the last element of an array - func
-
 /*
 function lastElement(arr) {
   return arr[arr.length - 1];
@@ -149,3 +148,31 @@ function lastElement(arr) {
 
 console.log(lastElement([1, 4, 5, 6, 7]));
 */
+
+// Printing all the unique pairs - func
+
+// let newArr = [];
+// function printUniquePair(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (arr[i] !== arr[j]) {
+//         newArr.push([arr[i], arr[j]]);
+//       }
+//     }
+//   }
+//   newArr.forEach((pair) => {
+//     console.log(`${pair[0]}, ${pair[1]}`);
+//   });
+// }
+
+// printUniquePair([1, 2, 3, 2]);
+
+function printAllPairs(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      console.log(`(${arr[i]}, ${arr[j]})`);
+    }
+  }
+}
+
+printAllPairs([1, 2, 2, 3, 1, 6]);

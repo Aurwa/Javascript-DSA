@@ -27,6 +27,7 @@ console.log(countChar("Hello"));
 
 // Write a function called same, which accepts two arrays. The function should return true if every value in the array has it's correspoding value squared in the second array. The frequency of values must be same.
 
+// Method 1
 /*
 function same(arr1, arr2) {
   if (arr1.length !== arr2.length) {
@@ -80,6 +81,8 @@ let arrayTwo = [9, 1, 4];
 console.log(same(arrayOne, arrayTwo)); // true
 */
 
+/*
+// practice of above method
 let arrayOne = [1, 2, 3, 2];
 let arrayTwo = [9, 1, 4, 4];
 
@@ -124,3 +127,49 @@ function same(arr1, arr2) {
 }
 
 console.log(same(arrayOne, arrayTwo));
+*/
+
+// Method 2
+/*
+// not the best approach to solve
+// O(n^2)
+function same(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+
+  for (let i = 0; i < arr1.length; i++) {
+    let correctIndex = arr2.indexOf(arr1[i] ** 2);
+    if (correctIndex === -1) {
+      return false;
+    }
+    arr2.splice(correctIndex, 1);
+  }
+  return true;
+}
+
+console.log(same([1, 2, 3], [9, 1, 4]));
+
+// For each value arr1[i], it calculates the square (arr1[i] ** 2) and looks for this squared value in arr2 using indexOf.
+
+// If the squared value is not found (indexOf returns -1), the function returns false.
+// If the squared value is found, it removes that value from arr2 using splice to ensure it won't be counted again.
+
+// Existence Check:
+// The indexOf method checks if the squared value of the current element in arr1 exists in arr2.
+// If the squared value does not exist in arr2, the function returns false.
+
+// Frequency Check:
+// The splice method removes the squared value from arr2 once it is matched with an element in arr1. This ensures that each value is only matched once, maintaining the correct frequency.
+
+// Combined Complexity
+//The key point is understanding how these operations are nested:
+
+// Outer Loop Runs n times.
+
+// Inner Operations (indexOf and splice): Each of these operations is 𝑂(𝑛) , O(n).
+
+// When analyzing nested operations, the time complexities of the inner operations are multiplied by the number of iterations of the outer loop.
+
+// O(n) * O(n) = O(n^2) ==> Time Complexity
+*/

@@ -1,4 +1,4 @@
-// Write a function which takes in a string and returns counts of each character in the string
+// 1. Write a function which takes in a string and returns counts of each character in the string
 
 /*
 let charCount = {};
@@ -25,7 +25,7 @@ console.log(countChar("Hello"));
 // console.log(obj[pName]);
 */
 
-// Write a function called same, which accepts two arrays. The function should return true if every value in the array has it's correspoding value squared in the second array. The frequency of values must be same.
+// 2. Write a function called same, which accepts two arrays. The function should return true if every value in the array has it's correspoding value squared in the second array. The frequency of values must be same.
 
 // Method 1
 /*
@@ -173,3 +173,7 @@ console.log(same([1, 2, 3], [9, 1, 4]));
 
 // O(n) * O(n) = O(n^2) ==> Time Complexity
 */
+
+// Practice Function 1
+
+function countChar(str) {}

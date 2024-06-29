@@ -25,6 +25,8 @@ console.log(countChar("Hello"));
 // console.log(obj[pName]);
 */
 
+// --------- Frequency Pattern ----------
+
 // 2. Write a function called same, which accepts two arrays. The function should return true if every value in the array has it's correspoding value squared in the second array. The frequency of values must be same.
 
 // Method 1
@@ -348,7 +350,7 @@ console.log(sort(strOne, strTwo));
 */
 
 // --- method 3 ---
-
+/*
 function validAnagram(first, second) {
   if (first.length !== second.length) {
     return false;
@@ -380,3 +382,20 @@ function validAnagram(first, second) {
 }
 
 console.log(validAnagram("cinemaa", "icemann"));
+*/
+
+// --------- Multiple Pointers ----------
+
+// 1. Write a function called sumZero which accepts a sorted array of integers. The function should find the first pair where the sum is 0. Return an array that includes both values that sum to zero or undefined if a pair doesn’t exist.
+
+function sumZero(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === 0) {
+        return `(${arr[i]}, ${arr[j]})`;
+      }
+    }
+  }
+}
+
+console.log(sumZero([-2, 0, 1, 3]));

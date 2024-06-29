@@ -480,3 +480,34 @@ function countUniqueValues(arr) {
 
 console.log(countUniqueValues([1, 1, 1, 2]));
 */
+
+// -------- Sliding Window Pattern -----
+
+// 1. Write a function called maxSubarraySum which accepts an array of integers and a number called n. The function should calculate the maximum sum of n consecutive elements in the array.
+
+function maxSubarraySum(arr, num) {
+  // Edge case: If num is greater than the length of arr, return null or handle as appropriate
+  if (num > arr.length) {
+    return null; // or throw an error, return 0, etc., based on requirements
+  }
+
+  let maxSum = 0;
+  let tempSum = 0;
+
+  // Calculate the sum of the first `num` elements
+  for (let i = 0; i < num; i++) {
+    maxSum += arr[i];
+  }
+
+  tempSum = maxSum;
+
+  // Iterate through the rest of the array to find the maximum sum of `num` consecutive elements
+  for (let i = num; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - num] + arr[i];
+    maxSum = Math.max(maxSum, tempSum);
+  }
+
+  return maxSum;
+}
+
+console.log(maxSubarraySum([1, 2, 5, 2, 8, 1, 5], 2));

@@ -404,7 +404,7 @@ console.log(sumZero([-2, 0, 1, 3]));
 */
 
 // Method 2 ==> O(n)
-
+/*
 function sumZero(arr) {
   let left = 0;
   let right = arr.length - 1;
@@ -421,3 +421,20 @@ function sumZero(arr) {
 }
 
 console.log(sumZero([-3, -2, 0, 1, 2]));
+*/
+
+// 2. Implement a function called countUniqueValues, which accepts a sorted array, and counts the unique values in the array. There can be negative numbers in the array, but it will always be sorted.
+
+// --- Method 1 --- O(n)
+
+function countUniqueValues(arr) {
+  let newArr = [];
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] !== arr[i + 1]) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+
+console.log(countUniqueValues([1, 1, 1, 2]));

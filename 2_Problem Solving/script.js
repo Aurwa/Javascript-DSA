@@ -175,7 +175,7 @@ console.log(same([1, 2, 3], [9, 1, 4]));
 */
 
 // Practice Function 1
-
+/*
 let countObj = {}; // to keep count of characters
 
 function countChar(str) {
@@ -189,4 +189,76 @@ function countChar(str) {
   return countObj;
 }
 
-console.log(countChar("Hello"));
+// console.log(countChar("Hello"));
+*/
+
+// Practice Function 2
+
+const arrayOne = [1, 2, 3];
+const arrayTwo = [9, 1, 4];
+
+// -- Method 1 -- O(n^2)
+/*
+function same(arr1, arr2) {
+  if (arr1.length !== arr2.length) { // O(1)
+    return false;
+  }
+  for (let i = 0; i < arr1.length; i++) { // O(n)
+
+    let trueIndex = arr2.indexOf(arr1[i] ** 2); 
+    // O(n)
+    if (trueIndex === -1) {
+      return false;
+    }
+
+    arr2.splice(trueIndex, 1); // O(n)
+  }
+
+  return true;
+}
+
+// console.log(same(arrayOne, arrayTwo));
+*/
+
+// -- Method 2 --
+
+function same(arr1, arr2) {
+  // checking length
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+
+  let freqObjOne = {};
+  let freqObjTwo = {};
+
+  // Obj 1
+  for (let val of arr1) {
+    if (freqObjOne[val] === undefined) {
+      freqObjOne[val] = 0;
+    }
+    freqObjOne[val]++;
+  }
+
+  // Obj 2
+  for (let val of arr2) {
+    if (freqObjTwo[val] === undefined) {
+      freqObjTwo[val] = 0;
+    }
+    freqObjTwo[val]++;
+  }
+
+  for (let key in freqObjOne) {
+    // existence check-- checking if obj2 has this key
+    if (freqObjTwo[key ** 2] === undefined) {
+      return false;
+    }
+
+    // frequncy check -- chcking if value/num of key is same in both objects
+    if (freqObjTwo[key ** 2] !== freqObjOne[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(same(arrayOne, arrayTwo));

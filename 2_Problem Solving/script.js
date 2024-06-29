@@ -221,7 +221,7 @@ function same(arr1, arr2) {
 */
 
 // -- Method 2 --
-
+/*
 function same(arr1, arr2) {
   // checking length
   if (arr1.length !== arr2.length) {
@@ -262,3 +262,121 @@ function same(arr1, arr2) {
 }
 
 console.log(same(arrayOne, arrayTwo));
+*/
+
+// Anagram function
+
+// ---- Method 1 ----
+/*
+function areAnagram(str1, str2) {
+  let s1 = str1.length;
+  let s2 = str2.length;
+
+  if (s1 !== s2) {
+    return false;
+  }
+
+  const sortedArr1 = str1.split("").sort();
+  const sortedArr2 = str2.split("").sort();
+
+  // for (let i = 0; i < sortedArr1.length; i++) {
+  //   if (sortedArr1[i] !== sortedArr2[i]) {
+  //     return false;
+  //   }
+  // }
+
+  for (const [index, char] of sortedArr1.entries()) {
+    if (char !== sortedArr2[index]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+// console.log(
+//   areAnagram(["l", "i", "s", "t", "e", "n"], ["s", "i", "l", "e", "n", "t"])
+//);
+
+console.log(areAnagram("silent", "listen"));
+*/
+
+// --- method 2 (freq counter) ---
+/*
+let strOne = "cinema";
+let strTwo = "iceman";
+
+function sort(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+
+  let obj1 = {};
+  let obj2 = {};
+
+  for (let char of str1) {
+    if (obj1[char] === undefined) {
+      obj1[char] = 1;
+    } else {
+      obj1[char]++;
+    }
+  }
+
+  for (let char of str2) {
+    if (obj2[char] === undefined) {
+      obj2[char] = 1;
+    } else {
+      obj2[char]++;
+    }
+  }
+  console.log(obj1);
+  console.log(obj2);
+
+  for (let key in obj1) {
+    // checking existence
+    if (obj2[key] === undefined) {
+      return false;
+    }
+    // checking frequency
+    if (obj2[key] !== obj1[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(sort(strOne, strTwo));
+*/
+
+// --- method 3 ---
+
+function validAnagram(first, second) {
+  if (first.length !== second.length) {
+    return false;
+  }
+
+  const lookup = {};
+
+  for (let i = 0; i < first.length; i++) {
+    let letter = first[i];
+    // lookup[letter] ? (lookup[letter] += 1) : (lookup[letter] = 1);
+    if (lookup[letter]) {
+      lookup[letter]++;
+    } else {
+      lookup[letter] = 1;
+    }
+  }
+
+  for (let i = 0; i < second.length; i++) {
+    let letter = second[i];
+    // if can't find letter or letter is zero
+    if (!lookup[letter]) {
+      return false;
+    } else {
+      lookup[letter] -= 1;
+    }
+  }
+
+  return true;
+}
+
+console.log(validAnagram("cinemaa", "icemann"));

@@ -176,4 +176,17 @@ console.log(same([1, 2, 3], [9, 1, 4]));
 
 // Practice Function 1
 
-function countChar(str) {}
+let countObj = {}; // to keep count of characters
+
+function countChar(str) {
+  for (let char of str) {
+    if (countObj[char] === undefined) {
+      countObj[char] = 1;
+    } else {
+      countObj[char]++;
+    }
+  }
+  return countObj;
+}
+
+console.log(countChar("Hello"));

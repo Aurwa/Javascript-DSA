@@ -443,22 +443,24 @@ console.log(countUniqueValues([1, 1, 1, 2]));
 // --- Method 2 --- O(n)
 /*
 function countUniqueValues(arr) {
-  let newArr = [];
-  let left = 0;
-  let right = left + 1;
+  if (arr.length === 0) return 0;
 
-  while (left < arr.length) {
+  let uniqueCount = 1; // Start with 1 since the first element is always unique
+  let left = 0;
+  let right = 1;
+
+  while (right < arr.length) {
     if (arr[left] !== arr[right]) {
-      newArr.push(arr[left]);
+      uniqueCount++;
+      left = right; // Move left to right
     }
-    left++;
-    right++;
+    right++; // Always increment right
   }
 
-  return newArr;
+  return uniqueCount;
 }
 
-console.log(countUniqueValues([1, 1, 1, 2])); // Output: [1, 2]
+console.log(countUniqueValues([1, 1, 1, 2])); // Output: 2
 */
 
 // --- Method 3 --- T-> O(n) S-> O(1)

@@ -87,3 +87,55 @@ console.log(same([1, 2, 3, 5], [9, 1, 4, 25]));
 */
 
 // Anagram function
+
+// Method 1 ---- O(nlogn)
+/*
+function trueAnagram(str1, str2) {
+  let s1 = str1.length;
+  let s2 = str2.length;
+
+  if (s1 !== s2) {
+    return false;
+  }
+  let sotrtedArr1 = str1.split("").sort();
+  let sortedArr2 = str2.split("").sort();
+
+  for (let i = 0; i < sotrtedArr1.length; i++) {
+    if (sotrtedArr1[i] !== sortedArr2[i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(trueAnagram("cinema", "iceman"));
+*/
+
+// Method 2
+function trueAnagram(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+
+  let objOne = {};
+  for (let char of str1) {
+    if (objOne[char]) {
+      objOne[char]++;
+    } else {
+      objOne[char] = 1;
+    }
+  }
+
+  for (let i = 0; i < str2.length; i++) {
+    let letter = str2[i];
+    if (!objOne[letter]) {
+      return false;
+    } else {
+      objOne[letter] -= 1;
+    }
+  }
+  return true;
+}
+
+console.log(trueAnagram("cinema", "iceman"));

@@ -600,14 +600,10 @@ function minSubArrayLen(arr, num) {
   let tempSum = 0;
 
   while (end < arr.length) {
-    // Add the current element to tempSum
     tempSum += arr[end];
 
-    // While the current window sum is greater than or equal to num
     while (tempSum >= num) {
-      // Update minLength if the current window is smaller
       minLength = Math.min(minLength, end - start + 1);
-      // Remove the element at start from tempSum
       tempSum -= arr[start];
       // Move the start pointer to the right
       start++;

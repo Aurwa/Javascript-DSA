@@ -457,12 +457,12 @@ console.log(areThereDuplicates("a", "b", "c", "b"));
 */
 
 // 2. aveargePair
-
 // Write a function called averagePair. Given a sorted array of integers and a target average, determine if there is a pair of values in the array where the average of the pair equals the target average. There may be more than one pair that matches the average target.
 
 // averagePair([1, 2, 3], 2.5); ==> true
 // averagePair([1, 3, 3, 5, 6, 7, 10, 12, 19], 8); ==> true
 
+/*
 function averagePair(arr, targetAvg) {
   let targetSum = targetAvg * 2;
   console.log(targetSum);
@@ -486,3 +486,138 @@ console.log(averagePair([1, 3, 3, 5, 6, 7, 10, 12, 19], 8));
 // Incrementing the left pointer moves to a larger value, which will increase the currentSum.
 
 // Decrementing the right pointer moves to a smaller value, which will decrease the currentSum.
+*/
+
+// 3. isSubsequence
+// Write a function called isSubsequence which takes in two strings and checks whether the characters in the first string form a subsequence of the characters in the second string. In other words, the function should check whether the characters in the first string appear somewhere in the second string, without their order changing.
+
+// isSubsequence('hello', 'hello world'); ==> true
+// isSubsequence('sing', 'sting'); ==> true
+// isSubsequence('abc', 'acb'); ==> false (order matters)
+
+/*
+function isSubsequence(str1, str2) {
+  let i = 0;
+  let j = 0;
+
+  while (j < str2.length) {
+    if (str1[i] === str2[j]) {
+      i++;
+    }
+    if (i === str1.length) {
+      return true;
+    }
+
+    j++;
+  }
+  return false;
+}
+
+console.log(isSubsequence("sing", "sting"));
+*/
+
+/*
+// practice
+function isSubsequence(str1, str2) {
+  let i = 0;
+  let j = 0;
+
+  while (j < str2.length) {
+    if (str1[i] === str2[j]) {
+      i++;
+    }
+
+    if (i === str1.length) {
+      return true;
+    }
+
+    j++;
+  }
+  return false;
+}
+
+console.log(isSubsequence("abc", "acb"));
+*/
+
+// // ======= Sliding Window ======== // //
+
+// 1. maxSubArray
+/*
+function maxSubarraySum(arr, num) {
+  if (num > arr.length) {
+    return false;
+  }
+
+  let tempSum = 0;
+  let maxSum = 0;
+
+  for (let i = 0; i < num; i++) {
+    maxSum += arr[i];
+  }
+  tempSum = maxSum;
+
+  for (let i = num; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - num] + arr[i];
+    maxSum = Math.max(tempSum, maxSum);
+  }
+  return maxSum;
+}
+
+console.log(maxSubarraySum([1, 2, 5, 2, 8, 1, 5], 2));
+
+// When moving the window one element to the right:
+
+// Subtract the element that is no longer in the window (arr[i - n]).
+// Add the new element that enters the window (arr[i]).
+*/
+
+// minSubArrayLen
+
+// 2. Write a function called minSubArrayLen which accepts two parameters - an array of positive integers and a positive integer.
+
+// This function should return the minimal length of a contiguous subarray of which the sum is greater than or equal to the integer passed to the function. If there isn’t one, return 0 instead.
+
+// minSubArrayLen([2, 3, 1, 2, 4, 3], 7); ==> 2 -> because [4, 3] is the smallest subarray
+
+// function minSubArrayLen(arr, num) {
+//   let tempSum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] >= num) {
+//       return 1;
+//     } else if (arr[i] + arr[i + 1] === num) {
+//       return 2;
+//     }
+//   }
+//   return 0;
+// }
+
+// console.log(minSubArrayLen([3, 1, 62, 19], 52));
+
+function minSubArrayLen(arr, num) {
+  let minLength = Infinity;
+  let start = 0;
+  let end = 0;
+  let tempSum = 0;
+
+  while (end < arr.length) {
+    // Add the current element to tempSum
+    tempSum += arr[end];
+
+    // While the current window sum is greater than or equal to num
+    while (tempSum >= num) {
+      // Update minLength if the current window is smaller
+      minLength = Math.min(minLength, end - start + 1);
+      // Remove the element at start from tempSum
+      tempSum -= arr[start];
+      // Move the start pointer to the right
+      start++;
+    }
+    // Move the end pointer to the right
+    end++;
+  }
+
+  // If minLength was updated, return it, otherwise return 0
+  return minLength === Infinity ? 0 : minLength;
+}
+
+console.log(minSubArrayLen([2, 3, 1, 2, 4, 3], 7)); // Output: 2

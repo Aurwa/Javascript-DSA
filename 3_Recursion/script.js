@@ -23,3 +23,13 @@ countDown(5);
 
 // countDown(5);
 */
+
+// function 2
+function sumRange(num) {
+  if (num === 1) {
+    return 1;
+  }
+  return num + sumRange(num - 1);
+}
+
+console.log(sumRange(5));

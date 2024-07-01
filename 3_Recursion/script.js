@@ -135,3 +135,12 @@ function power2(base, expo) {
 
 console.log(power2(5, 2));
 */
+
+// Question 2 --- factorial
+function factorial(num) {
+  if (num === 1) return 1;
+
+  return num * factorial(num - 1);
+}
+
+console.log(factorial(4));

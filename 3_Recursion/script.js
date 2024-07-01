@@ -53,11 +53,23 @@ console.log(factorial(5));
 */
 
 // with recursion
+/*
 function factorial(num) {
   if (num === 1) {
     return 1;
   }
   return num * factorial(num - 1);
+}
+
+console.log(factorial(5));
+*/
+
+let res = 1;
+function factorial(num) {
+  for (let i = num; i > 0; i--) {
+    res *= i;
+  }
+  return res;
 }
 
 console.log(factorial(5));

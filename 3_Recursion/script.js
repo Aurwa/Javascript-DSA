@@ -137,6 +137,7 @@ console.log(power2(5, 2));
 */
 
 // Question 2 --- factorial
+/*
 function factorial(num) {
   if (num === 1) return 1;
 
@@ -144,3 +145,14 @@ function factorial(num) {
 }
 
 console.log(factorial(4));
+*/
+
+// Question 3 --- productOfArray
+res = 1;
+function productOfArray(arr) {
+  if (arr.length === 0) return 1;
+
+  return arr[0] * productOfArray(arr.slice(1));
+}
+
+console.log(productOfArray([1, 2, 3, 4]));

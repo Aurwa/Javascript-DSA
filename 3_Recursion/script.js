@@ -159,6 +159,7 @@ console.log(productOfArray([1, 2, 3, 4]));
 */
 
 // Question 4 --- recursive range
+/*
 function recursiveRange(num) {
   if (num === 0) return 0;
 
@@ -166,3 +167,22 @@ function recursiveRange(num) {
 }
 
 console.log(recursiveRange(6));
+*/
+
+// Question 5 --- fibonacci seq
+
+let n1 = 0;
+let n2 = 1;
+let res = 0;
+function fibonacci(n) {
+  console.log(n1);
+  console.log(n2);
+  // console.log(n2);
+  for (let i = 1; i < n; i++) {
+    // res = n1 + n2;
+    res += n2;
+    console.log(res);
+  }
+}
+
+console.log(fibonacci(7));

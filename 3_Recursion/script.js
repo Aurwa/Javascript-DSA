@@ -64,12 +64,22 @@ function factorial(num) {
 console.log(factorial(5));
 */
 
-let res = 1;
-function factorial(num) {
-  for (let i = num; i > 0; i--) {
-    res *= i;
+// countOddValues --- helper recursive way
+function countOddValues(arr) {
+  let res = [];
+  function helper(helperInput) {
+    if (helperInput.length === 0) {
+      return;
+    }
+
+    if (helperInput[0] % 2 !== 0) {
+      res.push(helperInput[0]);
+    }
+    helper(helperInput.slice(1));
   }
+
+  helper(arr);
   return res;
 }
 
-console.log(factorial(5));
+console.log(countOddValues([1, 2, 3, 4, 5, 6]));

@@ -37,9 +37,9 @@ console.log(sumRange(5));
 */
 
 // Function 3 -- factorial
-
-// without recursion
 /*
+// without recursion
+
 function factorial(num) {
   let res = 1;
   for (let i = num; i > 0; i--) {
@@ -50,10 +50,10 @@ function factorial(num) {
 }
 
 console.log(factorial(5));
-*/
+
 
 // with recursion
-/*
+
 function factorial(num) {
   if (num === 1) {
     return 1;
@@ -64,7 +64,9 @@ function factorial(num) {
 console.log(factorial(5));
 */
 
-// countOddValues --- helper recursive way
+// Function 4 --- countOddValues
+/*
+//  helper recursive way
 function countOddValues(arr) {
   let res = [];
   function helper(helperInput) {
@@ -83,3 +85,53 @@ function countOddValues(arr) {
 }
 
 console.log(countOddValues([1, 2, 3, 4, 5, 6]));
+
+// countOddValues --- pure recursive way
+
+function countOddValues(arr) {
+  let res = [];
+
+  if (arr.length === 0) {
+    return res;
+  }
+
+  if (arr[0] % 2 !== 0) {
+    res.push(arr[0]);
+  }
+
+  res = res.concat(countOddValues(arr.slice(1)));
+  return res;
+}
+
+console.log(countOddValues([1, 2, 3, 4, 5, 6, 7]));
+*/
+
+////////////////////////////////////////////////
+// // ----- Recursion Practice Set ----- // //
+
+// Question 1 --- power(n, x)
+/*
+// ----- without recursion
+let res = 1;
+function power(base, expo) {
+  for (let i = 0; i < expo; i++) {
+    res *= base;
+  }
+  return res;
+}
+
+// console.log(power(5, 2));
+
+// ------ with recursion
+
+function power2(base, expo) {
+  if (expo === 0) return 1;
+  if (expo === 1) return base;
+
+  if (expo > 0) {
+    return base * power2(base, expo - 1);
+  }
+}
+
+console.log(power2(5, 2));
+*/

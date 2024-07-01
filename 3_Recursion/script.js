@@ -148,7 +148,7 @@ console.log(factorial(4));
 */
 
 // Question 3 --- productOfArray
-res = 1;
+/*
 function productOfArray(arr) {
   if (arr.length === 0) return 1;
 
@@ -156,3 +156,13 @@ function productOfArray(arr) {
 }
 
 console.log(productOfArray([1, 2, 3, 4]));
+*/
+
+// Question 4 --- recursive range
+function recursiveRange(num) {
+  if (num === 0) return 0;
+
+  return num + recursiveRange(num - 1);
+}
+
+console.log(recursiveRange(6));

@@ -170,29 +170,13 @@ console.log(recursiveRange(6));
 */
 
 // Question 5 --- fibonacci seq
+/*
 // --- without recursion
-
-let n1 = 0;
-let n2 = 1;
-let res;
-function fibonacci(n) {
-  console.log(n1);
-  console.log(n2);
-  for (let i = 1; i < n; i++) {
-    res = n1 + n2;
-    n1 = n2;
-    n2 = res;
-    console.log(res);
-  }
-}
-
-// console.log(fibonacci(7));
-
 let num1 = 0;
 let num2 = 1;
 let fn;
-// console.log(num1);
-// console.log(num2);
+console.log(num1);
+console.log(num2);
 function fibonacci2(n) {
   if (n === 0) return;
   fn = num1 + num2;
@@ -202,12 +186,31 @@ function fibonacci2(n) {
   return fibonacci2(n - 1);
 }
 
-// fibonacci2(7);
+fibonacci2(7);
 
 // ------ with recursion
 function fib(num) {
   if (num === 1 || num === 2) return 1;
-  return fib(num - 1) + fib(num - 2);
+  if (num > 2) {
+    return fib(num - 1) + fib(num - 2);
+  }
 }
 
 console.log(fib(6));
+
+// printing all fib seq numbers upto n number
+
+const fib = (num) => {
+  if (num == 0) return 0;
+  if (num === 1 || num === 2) return 1;
+  return fib(num - 1) + fib(num - 2);
+};
+
+const printFibonacci = (n) => {
+  for (let i = 0; i <= n; i++) {
+    console.log(fib(i));
+  }
+};
+
+printFibonacci(6);
+*/

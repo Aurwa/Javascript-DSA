@@ -173,14 +173,14 @@ console.log(recursiveRange(6));
 
 let n1 = 0;
 let n2 = 1;
-let res = 0;
+let res;
 function fibonacci(n) {
   console.log(n1);
   console.log(n2);
-  // console.log(n2);
   for (let i = 1; i < n; i++) {
-    // res = n1 + n2;
-    res += n2;
+    res = n1 + n2;
+    n1 = n2;
+    n2 = res;
     console.log(res);
   }
 }

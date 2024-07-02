@@ -170,6 +170,7 @@ console.log(recursiveRange(6));
 */
 
 // Question 5 --- fibonacci seq
+// --- without recursion
 
 let n1 = 0;
 let n2 = 1;
@@ -185,4 +186,28 @@ function fibonacci(n) {
   }
 }
 
-console.log(fibonacci(7));
+// console.log(fibonacci(7));
+
+let num1 = 0;
+let num2 = 1;
+let fn;
+// console.log(num1);
+// console.log(num2);
+function fibonacci2(n) {
+  if (n === 0) return;
+  fn = num1 + num2;
+  num1 = num2;
+  num2 = fn;
+  console.log(fn);
+  return fibonacci2(n - 1);
+}
+
+// fibonacci2(7);
+
+// ------ with recursion
+function fib(num) {
+  if (num === 1 || num === 2) return 1;
+  return fib(num - 1) + fib(num - 2);
+}
+
+console.log(fib(6));

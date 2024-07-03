@@ -579,20 +579,7 @@ console.log(maxSubarraySum([1, 2, 5, 2, 8, 1, 5], 2));
 
 // minSubArrayLen([2, 3, 1, 2, 4, 3], 7); ==> 2 -> because [4, 3] is the smallest subarray
 
-// function minSubArrayLen(arr, num) {
-//   let tempSum = 0;
-//   for (let i = 0; i < arr.length; i++) {
-//     if (arr[i] >= num) {
-//       return 1;
-//     } else if (arr[i] + arr[i + 1] === num) {
-//       return 2;
-//     }
-//   }
-//   return 0;
-// }
-
-// console.log(minSubArrayLen([3, 1, 62, 19], 52));
-
+/*
 function minSubArrayLen(arr, num) {
   let minLength = Infinity;
   let start = 0;
@@ -617,3 +604,26 @@ function minSubArrayLen(arr, num) {
 }
 
 console.log(minSubArrayLen([2, 3, 1, 2, 4, 3], 7)); // Output: 2
+*/
+
+let start = 0;
+let end = 0;
+let sum = 0;
+let minLength = Infinity;
+
+function minSubArrayLen(arr, num) {
+  while (end < arr.length) {
+    sum += arr[end];
+
+    while (sum >= num) {
+      minLength = Math.min(minLength, end - start + 1);
+      sum -= arr[start];
+      start++;
+    }
+
+    end++;
+  }
+  return minLength === Infinity ? 0 : minLength;
+}
+
+console.log(minSubArrayLen([2, 1, 6, 5, 4], 9));

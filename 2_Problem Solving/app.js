@@ -571,9 +571,9 @@ console.log(maxSubarraySum([1, 2, 5, 2, 8, 1, 5], 2));
 // Add the new element that enters the window (arr[i]).
 */
 
-// minSubArrayLen
+// 2. minSubArrayLen
 
-// 2. Write a function called minSubArrayLen which accepts two parameters - an array of positive integers and a positive integer.
+// Write a function called minSubArrayLen which accepts two parameters - an array of positive integers and a positive integer.
 
 // This function should return the minimal length of a contiguous subarray of which the sum is greater than or equal to the integer passed to the function. If there isn’t one, return 0 instead.
 
@@ -604,8 +604,8 @@ function minSubArrayLen(arr, num) {
 }
 
 console.log(minSubArrayLen([2, 3, 1, 2, 4, 3], 7)); // Output: 2
-*/
 
+// practice
 let start = 0;
 let end = 0;
 let sum = 0;
@@ -627,3 +627,23 @@ function minSubArrayLen(arr, num) {
 }
 
 console.log(minSubArrayLen([2, 1, 6, 5, 4], 9));
+*/
+
+// 3. findLongestSubstring
+
+let start = 1;
+let end = 0;
+let obj = {};
+function findLongestSubstring(str) {
+  // let strArr = str.split("");
+  for (let char of str) {
+    if (obj[char] > 2) {
+      obj[char]--;
+    } else {
+      obj[char] = 1;
+    }
+  }
+  console.log(obj);
+}
+
+console.log(findLongestSubstring("rithmschool"));

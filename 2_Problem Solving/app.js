@@ -631,19 +631,21 @@ console.log(minSubArrayLen([2, 1, 6, 5, 4], 9));
 
 // 3. findLongestSubstring
 
-let start = 1;
-let end = 0;
-let obj = {};
 function findLongestSubstring(str) {
-  // let strArr = str.split("");
-  for (let char of str) {
-    if (obj[char] > 2) {
-      obj[char]--;
-    } else {
-      obj[char] = 1;
+  let longest = 0;
+  let seen = {};
+  let start = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    if (seen[char]) {
+      start = Math.max(start, seen[char]);
     }
+    longest = Math.max(longest, i - start + 1);
+    seen[char] = i + 1;
   }
-  console.log(obj);
+
+  return longest;
 }
 
 console.log(findLongestSubstring("rithmschool"));

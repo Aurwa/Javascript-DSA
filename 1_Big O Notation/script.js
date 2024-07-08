@@ -150,7 +150,7 @@ console.log(lastElement([1, 4, 5, 6, 7]));
 */
 
 // Printing all the unique pairs - func
-
+/*
 // let newArr = [];
 // function printUniquePair(arr) {
 //   for (let i = 0; i < arr.length; i++) {
@@ -167,6 +167,8 @@ console.log(lastElement([1, 4, 5, 6, 7]));
 
 // printUniquePair([1, 2, 3, 2]);
 
+// ********************************************
+
 function printAllPairs(arr) {
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
@@ -176,3 +178,4 @@ function printAllPairs(arr) {
 }
 
 printAllPairs([1, 2, 2, 3, 1, 6]);
+*/
